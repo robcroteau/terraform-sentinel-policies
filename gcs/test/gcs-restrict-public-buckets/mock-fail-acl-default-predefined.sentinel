@@ -1,0 +1,289 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_storage_bucket": {
+				"validate-store": {
+					0: {
+						"applied": {
+							"bucket_policy_only": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"force_destroy":      false,
+							"id":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":           "US",
+							"name":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"storage_class":      "STANDARD",
+							"url":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"bucket_policy_only": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"force_destroy": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "US",
+								"old":      "",
+							},
+							"name": {
+								"computed": true,
+								"new":      "sentinel-test-${random_string.random.result}",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_class": {
+								"computed": false,
+								"new":      "STANDARD",
+								"old":      "",
+							},
+							"url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_storage_bucket_acl": {
+				"all_authn_bucket_acl": {
+					0: {
+						"applied": {
+							"bucket":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"predefined_acl": "authenticatedRead",
+							"role_entity":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"bucket": {
+								"computed": true,
+								"new":      "${google_storage_bucket.validate-store.name}",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"predefined_acl": {
+								"computed": false,
+								"new":      "authenticatedRead",
+								"old":      "",
+							},
+							"role_entity.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"pubread_bucket_acl": {
+					0: {
+						"applied": {
+							"bucket":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"predefined_acl": "publicRead",
+							"role_entity":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"bucket": {
+								"computed": true,
+								"new":      "${google_storage_bucket.validate-store.name}",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"predefined_acl": {
+								"computed": false,
+								"new":      "publicRead",
+								"old":      "",
+							},
+							"role_entity.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"pubreadwrite_bucket_acl": {
+					0: {
+						"applied": {
+							"bucket":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"default_acl": "publicReadWrite",
+							"id":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"role_entity": "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"bucket": {
+								"computed": true,
+								"new":      "${google_storage_bucket.validate-store.name}",
+								"old":      "",
+							},
+							"default_acl": {
+								"computed": false,
+								"new":      "publicReadWrite",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"role_entity.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"random_string": {
+				"random": {
+					0: {
+						"applied": {
+							"id":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"length":      "6",
+							"lower":       true,
+							"min_lower":   "0",
+							"min_numeric": "0",
+							"min_special": "0",
+							"min_upper":   "0",
+							"number":      true,
+							"result":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"special":     false,
+							"upper":       true,
+						},
+						"destroy": false,
+						"diff": {
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"length": {
+								"computed": false,
+								"new":      "6",
+								"old":      "",
+							},
+							"lower": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"min_lower": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"min_numeric": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"min_special": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"min_upper": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"number": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"result": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"special": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"upper": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.11.14"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

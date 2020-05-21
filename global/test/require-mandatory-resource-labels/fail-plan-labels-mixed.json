@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "fail-plan-labels-mixed.sentinel"
+  },
+  "test": {
+    "main": false
+  },
+  "param": {
+    "required_labels": ["env","foo"]
+  }
+}

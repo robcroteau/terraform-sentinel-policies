@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "fail-plan-primitive.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

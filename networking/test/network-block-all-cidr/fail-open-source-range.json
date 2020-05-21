@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "fail-plan-open-sourcerange.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

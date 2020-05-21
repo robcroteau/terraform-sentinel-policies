@@ -1,0 +1,1354 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_bigquery_dataset": {
+				"dataset-w-labels": {
+					0: {
+						"applied": {
+							"access":                      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"creation_time":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"dataset_id":                  "example_dataset",
+							"default_table_expiration_ms": "3600000",
+							"delete_contents_on_destroy":  false,
+							"description":                 "This is a test description",
+							"etag":                        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"friendly_name":               "test",
+							"id":                          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"labels": {
+								"env":  "default",
+								"foo":  "test",
+								"pipe": "world",
+							},
+							"last_modified_time": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":           "US",
+							"project":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"access.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"creation_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"dataset_id": {
+								"computed": false,
+								"new":      "example_dataset",
+								"old":      "",
+							},
+							"default_table_expiration_ms": {
+								"computed": false,
+								"new":      "3600000",
+								"old":      "",
+							},
+							"delete_contents_on_destroy": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "This is a test description",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"friendly_name": {
+								"computed": false,
+								"new":      "test",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels.%": {
+								"computed": false,
+								"new":      "3",
+								"old":      "",
+							},
+							"labels.env": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"labels.foo": {
+								"computed": false,
+								"new":      "test",
+								"old":      "",
+							},
+							"labels.pipe": {
+								"computed": false,
+								"new":      "world",
+								"old":      "",
+							},
+							"last_modified_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "US",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_bigquery_table": {
+				"default": {
+					0: {
+						"applied": {
+							"creation_time":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"dataset_id":      "example_dataset",
+							"etag":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"expiration_time": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"labels": {
+								"env": "default",
+								"foo": "now",
+							},
+							"last_modified_time":  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"num_bytes":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"num_long_term_bytes": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"num_rows":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"schema":              "[{\"description\":\"The Permalink\",\"mode\":\"NULLABLE\",\"name\":\"permalink\",\"type\":\"STRING\"},{\"description\":\"State where the head office is located\",\"mode\":\"NULLABLE\",\"name\":\"state\",\"type\":\"STRING\"}]",
+							"self_link":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"table_id":            "bar",
+							"type":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"creation_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"dataset_id": {
+								"computed": false,
+								"new":      "example_dataset",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"expiration_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"labels.env": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"labels.foo": {
+								"computed": false,
+								"new":      "now",
+								"old":      "",
+							},
+							"last_modified_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"num_bytes": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"num_long_term_bytes": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"num_rows": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"schema": {
+								"computed": false,
+								"new":      "[{\"description\":\"The Permalink\",\"mode\":\"NULLABLE\",\"name\":\"permalink\",\"type\":\"STRING\"},{\"description\":\"State where the head office is located\",\"mode\":\"NULLABLE\",\"name\":\"state\",\"type\":\"STRING\"}]",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"table_id": {
+								"computed": false,
+								"new":      "bar",
+								"old":      "",
+							},
+							"type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_image": {
+				"disk-w-labels": {
+					0: {
+						"applied": {
+							"archive_size_bytes": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"creation_timestamp": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"disk_size_gb":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"guest_os_features":  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"label_fingerprint":  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"labels": {
+								"env": "default",
+								"foo": "what",
+							},
+							"licenses": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":     "example-image",
+							"project":  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"raw_disk": [
+								{
+									"container_type": "TAR",
+									"source":         "https://storage.googleapis.com/bosh-cpi-artifacts/bosh-stemcell-3262.4-google-kvm-ubuntu-trusty-go_agent-raw.tar.gz",
+								},
+							],
+							"self_link": "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"archive_size_bytes": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"disk_size_gb": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"guest_os_features.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"label_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"labels.env": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"labels.foo": {
+								"computed": false,
+								"new":      "what",
+								"old":      "",
+							},
+							"licenses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "example-image",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"raw_disk.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"raw_disk.0.container_type": {
+								"computed": false,
+								"new":      "TAR",
+								"old":      "",
+							},
+							"raw_disk.0.source": {
+								"computed": false,
+								"new":      "https://storage.googleapis.com/bosh-cpi-artifacts/bosh-stemcell-3262.4-google-kvm-ubuntu-trusty-go_agent-raw.tar.gz",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_instance": {
+				"instance-w-labels": {
+					0: {
+						"applied": {
+							"boot_disk": [
+								{
+									"auto_delete":                true,
+									"device_name":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"disk_encryption_key_sha256": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"initialize_params": [
+										{
+											"image":  "debian-cloud/debian-9",
+											"labels": {},
+											"size":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+											"type":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+										},
+									],
+									"kms_key_self_link": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"mode":              "READ_WRITE",
+								},
+							],
+							"can_ip_forward":      false,
+							"cpu_platform":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"deletion_protection": false,
+							"guest_accelerator":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"instance_id":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"label_fingerprint":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"labels": {
+								"env": "test",
+								"fee": "what",
+								"foo": "bar",
+							},
+							"machine_type":         "n1-standard-1",
+							"metadata_fingerprint": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":                 "test",
+							"network_interface": [
+								{
+									"access_config": [
+										{
+											"assigned_nat_ip": "74D93920-ED26-11E3-AC10-0800200C9A66",
+											"nat_ip":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+											"network_tier":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+										},
+									],
+									"address":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"name":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"network":            "default",
+									"network_ip":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"subnetwork_project": "74D93920-ED26-11E3-AC10-0800200C9A66",
+								},
+							],
+							"project":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"scheduling": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"service_account": [
+								{
+									"email": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"scopes": [
+										"https://www.googleapis.com/auth/devstorage.read_only",
+										"https://www.googleapis.com/auth/userinfo.email",
+										"https://www.googleapis.com/auth/compute.readonly",
+									],
+								},
+							],
+							"tags_fingerprint": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"zone":             "us-central1-a",
+						},
+						"destroy": false,
+						"diff": {
+							"boot_disk.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"boot_disk.0.auto_delete": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"boot_disk.0.device_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.disk_encryption_key_sha256": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.image": {
+								"computed": false,
+								"new":      "debian-cloud/debian-9",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.labels.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.size": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.initialize_params.0.type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.kms_key_self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_disk.0.mode": {
+								"computed": false,
+								"new":      "READ_WRITE",
+								"old":      "",
+							},
+							"can_ip_forward": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"cpu_platform": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"guest_accelerator.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"label_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels.%": {
+								"computed": false,
+								"new":      "3",
+								"old":      "",
+							},
+							"labels.env": {
+								"computed": false,
+								"new":      "test",
+								"old":      "",
+							},
+							"labels.fee": {
+								"computed": false,
+								"new":      "what",
+								"old":      "",
+							},
+							"labels.foo": {
+								"computed": false,
+								"new":      "bar",
+								"old":      "",
+							},
+							"machine_type": {
+								"computed": false,
+								"new":      "n1-standard-1",
+								"old":      "",
+							},
+							"metadata_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "test",
+								"old":      "",
+							},
+							"network_interface.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"network_interface.0.access_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"network_interface.0.access_config.0.assigned_nat_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.access_config.0.nat_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.access_config.0.network_tier": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.network": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"network_interface.0.network_ip": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"network_interface.0.subnetwork_project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"scheduling.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"service_account.0.email": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account.0.scopes.#": {
+								"computed": false,
+								"new":      "3",
+								"old":      "",
+							},
+							"service_account.0.scopes.1632638332": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/devstorage.read_only",
+								"old":      "",
+							},
+							"service_account.0.scopes.2428168921": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/userinfo.email",
+								"old":      "",
+							},
+							"service_account.0.scopes.2862113455": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/compute.readonly",
+								"old":      "",
+							},
+							"tags_fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": false,
+								"new":      "us-central1-a",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_container_cluster": {
+				"has-label": {
+					0: {
+						"applied": {
+							"additional_zones":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"addons_config":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"cluster_autoscaling":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"cluster_ipv4_cidr":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"default_max_pods_per_node":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_binary_authorization": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_kubernetes_alpha":     false,
+							"enable_legacy_abac":          false,
+							"enable_tpu":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"endpoint":                    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"initial_node_count":          "3",
+							"instance_group_urls":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"ip_allocation_policy":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":                    "us-central1-a",
+							"logging_service":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"master_auth": [
+								{
+									"client_certificate": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"client_certificate_config": [
+										{
+											"issue_client_certificate": false,
+										},
+									],
+									"client_key":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"cluster_ca_certificate": "74D93920-ED26-11E3-AC10-0800200C9A66",
+								},
+							],
+							"master_version":     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"monitoring_service": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":               "marcellus-wallace",
+							"network":            "default",
+							"network_policy":     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_config": [
+								{
+									"disk_size_gb":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"disk_type":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"guest_accelerator": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"image_type":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"labels": {
+										"env": "test",
+										"foo": "bar",
+									},
+									"local_ssd_count": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"machine_type":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"metadata": {
+										"disable-legacy-endpoints": true,
+									},
+									"oauth_scopes": [
+										"https://www.googleapis.com/auth/logging.write",
+										"https://www.googleapis.com/auth/monitoring",
+									],
+									"preemptible":              false,
+									"service_account":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"shielded_instance_config": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"tags": [
+										"foo",
+										"bar",
+									],
+								},
+							],
+							"node_locations":     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_pool":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_version":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"services_ipv4_cidr": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"zone":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"additional_zones.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"addons_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_autoscaling.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_ipv4_cidr": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"default_max_pods_per_node": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_binary_authorization": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_kubernetes_alpha": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_legacy_abac": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_tpu": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"initial_node_count": {
+								"computed": false,
+								"new":      "3",
+								"old":      "",
+							},
+							"instance_group_urls.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_allocation_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "us-central1-a",
+								"old":      "",
+							},
+							"logging_service": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_auth.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"master_auth.0.client_certificate": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_auth.0.client_certificate_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"master_auth.0.client_certificate_config.0.issue_client_certificate": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"master_auth.0.client_key": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_auth.0.cluster_ca_certificate": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"monitoring_service": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "marcellus-wallace",
+								"old":      "",
+							},
+							"network": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"network_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"node_config.0.disk_size_gb": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.disk_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.guest_accelerator.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.image_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.labels.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"node_config.0.labels.env": {
+								"computed": false,
+								"new":      "test",
+								"old":      "",
+							},
+							"node_config.0.labels.foo": {
+								"computed": false,
+								"new":      "bar",
+								"old":      "",
+							},
+							"node_config.0.local_ssd_count": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.machine_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.metadata.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"node_config.0.metadata.disable-legacy-endpoints": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"node_config.0.oauth_scopes.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"node_config.0.oauth_scopes.1277378754": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/monitoring",
+								"old":      "",
+							},
+							"node_config.0.oauth_scopes.172152165": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/logging.write",
+								"old":      "",
+							},
+							"node_config.0.preemptible": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"node_config.0.service_account": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.shielded_instance_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.tags.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"node_config.0.tags.0": {
+								"computed": false,
+								"new":      "foo",
+								"old":      "",
+							},
+							"node_config.0.tags.1": {
+								"computed": false,
+								"new":      "bar",
+								"old":      "",
+							},
+							"node_locations.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_pool.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"services_ipv4_cidr": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_project": {
+				"project-w-labels": {
+					0: {
+						"applied": {
+							"app_engine":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"auto_create_network": true,
+							"folder_id":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"labels": {
+								"env": "test",
+								"foo": "bar",
+							},
+							"name":        "My Project",
+							"number":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"org_id":      "1234567",
+							"policy_data": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"policy_etag": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project_id":  "random-project-w-labels",
+							"skip_delete": "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"app_engine.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"auto_create_network": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"folder_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"labels.env": {
+								"computed": false,
+								"new":      "test",
+								"old":      "",
+							},
+							"labels.foo": {
+								"computed": false,
+								"new":      "bar",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "My Project",
+								"old":      "",
+							},
+							"number": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"org_id": {
+								"computed": false,
+								"new":      "1234567",
+								"old":      "",
+							},
+							"policy_data": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"policy_etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project_id": {
+								"computed": false,
+								"new":      "random-project-w-labels",
+								"old":      "",
+							},
+							"skip_delete": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_sql_database_instance": {
+				"has-labels": {
+					0: {
+						"applied": {
+							"connection_name":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"database_version":              "POSTGRES_11",
+							"first_ip_address":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"ip_address":                    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"master_instance_name":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":                          "master-instance",
+							"private_ip_address":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":                       "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"public_ip_address":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":                        "us-central1",
+							"replica_configuration":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":                     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"server_ca_cert":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"service_account_email_address": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"settings": [
+								{
+									"activation_policy":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"availability_type":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"backup_configuration":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"crash_safe_replication": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"disk_autoresize":        true,
+									"disk_size":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"disk_type":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"ip_configuration":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"location_preference":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"pricing_plan":           "PER_USE",
+									"replication_type":       "SYNCHRONOUS",
+									"tier":                   "db-f1-micro",
+									"user_labels": {
+										"env": "dev",
+										"foo": "bar",
+									},
+									"version": "74D93920-ED26-11E3-AC10-0800200C9A66",
+								},
+							],
+						},
+						"destroy": false,
+						"diff": {
+							"connection_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"database_version": {
+								"computed": false,
+								"new":      "POSTGRES_11",
+								"old":      "",
+							},
+							"first_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_address.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_instance_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "master-instance",
+								"old":      "",
+							},
+							"private_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"public_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "",
+							},
+							"replica_configuration.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"server_ca_cert.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account_email_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"settings.0.activation_policy": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.availability_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.backup_configuration.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.crash_safe_replication": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.disk_autoresize": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"settings.0.disk_size": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.disk_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.ip_configuration.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.location_preference.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.pricing_plan": {
+								"computed": false,
+								"new":      "PER_USE",
+								"old":      "",
+							},
+							"settings.0.replication_type": {
+								"computed": false,
+								"new":      "SYNCHRONOUS",
+								"old":      "",
+							},
+							"settings.0.tier": {
+								"computed": false,
+								"new":      "db-f1-micro",
+								"old":      "",
+							},
+							"settings.0.user_labels.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"settings.0.user_labels.env": {
+								"computed": false,
+								"new":      "dev",
+								"old":      "",
+							},
+							"settings.0.user_labels.foo": {
+								"computed": false,
+								"new":      "bar",
+								"old":      "",
+							},
+							"settings.0.version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.11.14"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

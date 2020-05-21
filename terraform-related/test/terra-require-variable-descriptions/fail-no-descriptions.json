@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfconfig": "mock-config-no-descriptions.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

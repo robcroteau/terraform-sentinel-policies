@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "plan-firewall-port-udp-no-8080.sentinel"
+  },
+  "test": {
+    "main": true
+  },
+  "param": {
+    "disallowed_ports": [{"protocol": "tcp","ports": [1523, 8080]},{"protocol": "udp","ports": [3030]}]
+  }
+}

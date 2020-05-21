@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-binding-member-all.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

@@ -1,0 +1,189 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_compute_firewall": {
+				"http-ingress": {
+					0: {
+						"applied": {
+							"allow": [
+								{
+									"ports": [
+										"80",
+									],
+									"protocol": "tcp",
+								},
+								{
+									"ports":    [],
+									"protocol": "icmp",
+								},
+								{
+									"ports": [
+										"3000",
+									],
+									"protocol": "udp",
+								},
+							],
+							"creation_timestamp": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"destination_ranges": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"direction":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":               "test-firewall",
+							"network":            "default",
+							"priority":           "1000",
+							"project":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"source_ranges":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"source_tags": [
+								"web",
+							],
+						},
+						"destroy": false,
+						"diff": {
+							"allow.#": {
+								"computed": false,
+								"new":      "3",
+								"old":      "",
+							},
+							"allow.1367131964.ports.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"allow.1367131964.protocol": {
+								"computed": false,
+								"new":      "icmp",
+								"old":      "",
+							},
+							"allow.272637744.ports.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"allow.272637744.ports.0": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"allow.272637744.protocol": {
+								"computed": false,
+								"new":      "tcp",
+								"old":      "",
+							},
+							"allow.4154347351.ports.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"allow.4154347351.ports.0": {
+								"computed": false,
+								"new":      "3000",
+								"old":      "",
+							},
+							"allow.4154347351.protocol": {
+								"computed": false,
+								"new":      "udp",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"destination_ranges.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"direction": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "test-firewall",
+								"old":      "",
+							},
+							"network": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"priority": {
+								"computed": false,
+								"new":      "1000",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_ranges.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_tags.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"source_tags.365508689": {
+								"computed": false,
+								"new":      "web",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.11.14"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

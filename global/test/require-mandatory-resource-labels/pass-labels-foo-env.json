@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "pass-plan-labels-foo-env.sentinel"
+  },
+  "test": {
+    "main": true
+  },
+  "param": {
+    "required_labels": ["env","foo"]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-no-public.sentinel"
+  },
+  "test": {
+    "main": true
+  }
+}

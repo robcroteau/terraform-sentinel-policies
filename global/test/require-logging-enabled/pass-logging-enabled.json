@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "pass-plan-logging-enabled.sentinel"
+  },
+  "test": {
+    "main": true
+  }
+}

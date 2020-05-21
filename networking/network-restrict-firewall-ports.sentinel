@@ -1,0 +1,113 @@
+# TFPlan based policy restricts firewall ports based on list 
+# This policy uses the Sentinel tfplan import to restrict firewalls
+# from allowing specific ports to be opened per protocol
+
+##### Imports #####
+
+import "tfplan"
+import "strings"
+
+##### Lists #####
+
+# Restricted Firewall Ports
+# The following Firewall Ports will not be allowed. There should only be one map
+# per protocol type, ports represented as Integers, eg 8080 not "8080"
+
+param disallowed_ports
+
+##### Functions #####
+
+# Find all resources of a specific type from all modules using the tfplan import
+find_resources_from_plan = func(type) {
+
+  resources = {}
+
+  # Iterate over all modules in the tfplan import
+  for tfplan.module_paths as path {
+    # Iterate over the named resources of desired type in the module
+    for tfplan.module(path).resources[type] else {} as name, instances {
+      # Iterate over resource instances
+      for instances as index, r {
+
+        # Get the address of the instance
+        if length(path) == 0 {
+          # root module
+          address = type + "." + name + "[" + string(index) + "]"
+        } else {
+          # non-root module
+          address = "module." + strings.join(path, ".module.") + "." +
+                    type + "." + name + "[" + string(index) + "]"
+        }
+
+        # Add the instance to resources map, setting the key to the address
+        resources[address] = r
+      }
+    }
+  }
+
+  return resources
+}
+
+# Validate that all instances of a specified resource type being modified have
+# a specified top-level attribute in a given list
+validate_value_not_in_ports = func(type, disallowed_values) {
+
+  validated = true
+
+  # Get all resource instances of the specified type
+  resource_instances = find_resources_from_plan(type)
+
+  # Loop through the resource instances
+  for resource_instances as address, r {
+
+    # Skip resource instances that are being destroyed
+    # to avoid unnecessary policy violations.
+    # Used to be: if length(r.diff) == 0
+    if r.destroy and not r.requires_new {
+      print("Skipping resource", address, "that is being destroyed.")
+      continue
+    }
+
+    # Firewall json structure means each element in 'allow' will be a different
+    # protocol. We will iterate through each protocol, then the disallowed protocol
+    # check if the matching disallowed ports are in any port ranges
+    for r.applied["allow"] as ruleset {
+      dv_set = filter disallowed_values as dv { dv.protocol is ruleset.protocol}
+      disallowed_ports = []
+
+      if dv_set is not [] {
+        disallowed_ports = dv_set[0].ports
+      }
+      for ruleset.ports as portstring {
+        if "-" in portstring {
+          range_minmax = strings.split(portstring, "-")
+          has_conflict = filter disallowed_ports as dp { dp >= int(range_minmax[0]) and dp <= int(range_minmax[1]) }
+          if has_conflict is not [] {
+            print ("Disallowed ports in ", address, " conflicting with ", disallowed_ports,", ", ruleset.protocol)
+            validated = false
+          }
+        } else {
+          # Check singular values
+          if int(portstring) in disallowed_ports {
+            print ("Disallowed port in: ", address, " conflicting with port:", portstring,", ", ruleset.protocol)
+            validated = false
+          }
+        }
+      }
+    }
+
+  }
+  return validated
+}
+
+
+
+##### Rules #####
+
+# Call the validation function
+ports_validated = validate_value_not_in_ports("google_compute_firewall",
+                     disallowed_ports)
+# Main rule
+main = rule {
+  ports_validated
+}

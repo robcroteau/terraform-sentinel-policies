@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-no-outside-domains.sentinel"
+  },
+  "test": {
+    "main": true
+  },
+  "param": {
+    "whitelisted_domains":["gaf.com","standardindustries.com"]
+  }
+}

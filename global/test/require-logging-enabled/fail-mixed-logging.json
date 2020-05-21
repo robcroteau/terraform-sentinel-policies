@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "fail-plan-mixed-logging.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

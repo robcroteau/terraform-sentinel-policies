@@ -1,0 +1,335 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_bigquery_dataset": {
+				"dataset": {
+					0: {
+						"applied": {
+							"access": [
+								{
+									"domain":         "",
+									"group_by_email": "",
+									"role":           "READER",
+									"special_group":  "",
+									"user_by_email":  "bob@example.com.com",
+									"view":           [],
+								},
+								{
+									"domain":         "",
+									"group_by_email": "",
+									"role":           "READER",
+									"special_group":  "",
+									"user_by_email":  "bob@standardindustries.com",
+									"view":           [],
+								},
+								{
+									"domain":         "",
+									"group_by_email": "bob@sampledomain.com",
+									"role":           "READER",
+									"special_group":  "",
+									"user_by_email":  "",
+									"view":           [],
+								},
+								{
+									"domain":         "",
+									"group_by_email": "",
+									"role":           "OWNER",
+									"special_group":  "",
+									"user_by_email":  "bob@bob.com",
+									"view":           [],
+								},
+								{
+									"domain":         "",
+									"group_by_email": "",
+									"role":           "READER",
+									"special_group":  "",
+									"user_by_email":  "bob@gaf.com",
+									"view":           [],
+								},
+							],
+							"creation_time":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"dataset_id":                  "example_dataset",
+							"default_table_expiration_ms": "3600000",
+							"delete_contents_on_destroy":  false,
+							"description":                 "This is a test description",
+							"etag":                        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"friendly_name":               "test",
+							"id":                          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"labels": {
+								"env": "default",
+							},
+							"last_modified_time": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":           "US",
+							"project":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"access.#": {
+								"computed": false,
+								"new":      "5",
+								"old":      "",
+							},
+							"access.1118095013.domain": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1118095013.group_by_email": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1118095013.role": {
+								"computed": false,
+								"new":      "READER",
+								"old":      "",
+							},
+							"access.1118095013.special_group": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1118095013.user_by_email": {
+								"computed": false,
+								"new":      "bob@standardindustries.com",
+								"old":      "",
+							},
+							"access.1118095013.view.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"access.1649453325.domain": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1649453325.group_by_email": {
+								"computed": false,
+								"new":      "bob@sampledomain.com",
+								"old":      "",
+							},
+							"access.1649453325.role": {
+								"computed": false,
+								"new":      "READER",
+								"old":      "",
+							},
+							"access.1649453325.special_group": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1649453325.user_by_email": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1649453325.view.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"access.1825721025.domain": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1825721025.group_by_email": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1825721025.role": {
+								"computed": false,
+								"new":      "OWNER",
+								"old":      "",
+							},
+							"access.1825721025.special_group": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.1825721025.user_by_email": {
+								"computed": false,
+								"new":      "bob@bob.com",
+								"old":      "",
+							},
+							"access.1825721025.view.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"access.2646412603.domain": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.2646412603.group_by_email": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.2646412603.role": {
+								"computed": false,
+								"new":      "READER",
+								"old":      "",
+							},
+							"access.2646412603.special_group": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.2646412603.user_by_email": {
+								"computed": false,
+								"new":      "bob@gaf.com",
+								"old":      "",
+							},
+							"access.2646412603.view.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"access.332344939.domain": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.332344939.group_by_email": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.332344939.role": {
+								"computed": false,
+								"new":      "READER",
+								"old":      "",
+							},
+							"access.332344939.special_group": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"access.332344939.user_by_email": {
+								"computed": false,
+								"new":      "bob@example.com.com",
+								"old":      "",
+							},
+							"access.332344939.view.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"creation_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"dataset_id": {
+								"computed": false,
+								"new":      "example_dataset",
+								"old":      "",
+							},
+							"default_table_expiration_ms": {
+								"computed": false,
+								"new":      "3600000",
+								"old":      "",
+							},
+							"delete_contents_on_destroy": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "This is a test description",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"friendly_name": {
+								"computed": false,
+								"new":      "test",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"labels.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"labels.env": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"last_modified_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "US",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.11.14"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

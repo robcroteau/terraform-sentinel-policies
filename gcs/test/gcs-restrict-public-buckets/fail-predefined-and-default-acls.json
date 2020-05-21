@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-fail-acl-default-predefined.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

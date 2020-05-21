@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-allauthenticated.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

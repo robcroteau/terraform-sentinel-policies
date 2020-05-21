@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-no-domainwide.sentinel"
+  },
+  "test": {
+    "main": true
+  }
+}

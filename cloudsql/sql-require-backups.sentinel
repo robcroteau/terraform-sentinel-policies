@@ -1,0 +1,89 @@
+# TFPlan based policy that requires CloudSQL instances to have backups enabled
+
+##### Imports #####
+
+import "tfplan"
+import "strings"
+
+##### Functions #####
+
+# Find all resources of a specific type from all modules using the tfplan import
+find_resources_from_plan = func(type) {
+
+  resources = {}
+
+  # Iterate over all modules in the tfplan import
+  for tfplan.module_paths as path {
+    # Iterate over the named resources of desired type in the module
+    for tfplan.module(path).resources[type] else {} as name, instances {
+      # Iterate over resource instances
+      for instances as index, r {
+
+        # Get the address of the instance
+        if length(path) == 0 {
+          # root module
+          address = type + "." + name + "[" + string(index) + "]"
+        } else {
+          # non-root module
+          address = "module." + strings.join(path, ".module.") + "." +
+                    type + "." + name + "[" + string(index) + "]"
+        }
+
+        # Add the instance to resources map, setting the key to the address
+        resources[address] = r
+      }
+    }
+  }
+
+  return resources
+}
+
+
+validate_backups_enabled = func(type) {
+
+  validated = true
+
+  # Get all resource instances of the specified type
+  resource_instances = find_resources_from_plan(type)
+
+  # Loop through the resource instances
+  for resource_instances as address, r {
+
+    # Skip resource instances that are being destroyed
+    # to avoid unnecessary policy violations.
+    # Used to be: if length(r.diff) == 0
+    if r.destroy and not r.requires_new {
+      print("Skipping resource", address, "that is being destroyed.")
+      continue
+    }
+    
+    if r.diff["settings.0.backup_configuration.#"].computed else false is true {
+      # Backup configuration is computed by Terraform when not specified or enabled
+      # Assume it is not enabled and fail
+      validated = false
+      print ("SQL Instance: ", address, " does not have backups configured.")
+      continue
+    } 
+
+    if r.applied["settings"][0].backup_configuration[0].enabled else false is true {
+      print("Enabled")
+      continue
+    }
+    
+    # Either the enabled attribute did not exist or there was an issue loading the path
+    # Either way fail. 
+    print("Resource: ", address, " does not have SQL backups enabled.")
+    validated = false
+  }
+  return validated
+}
+
+##### Rules #####
+
+# Call the validation function
+backups_validated = validate_backups_enabled("google_sql_database_instance")
+
+# Main rule
+main = rule {
+  backups_validated
+}

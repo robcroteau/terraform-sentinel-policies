@@ -1,0 +1,368 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_billing_account_iam_member": {
+				"primitive-role": {
+					0: {
+						"applied": {
+							"billing_account_id": "00AA00-000AAA-00AA0A",
+							"etag":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"member":             "user:alice@gmail.com",
+							"role":               "Owner",
+						},
+						"destroy": false,
+						"diff": {
+							"billing_account_id": {
+								"computed": false,
+								"new":      "00AA00-000AAA-00AA0A",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"member": {
+								"computed": false,
+								"new":      "user:alice@gmail.com",
+								"old":      "",
+							},
+							"role": {
+								"computed": false,
+								"new":      "Owner",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_kms_key_ring_iam_member": {
+				"primitive-role": {
+					0: {
+						"applied": {
+							"etag":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"key_ring_id": "your-key-ring-id",
+							"member":      "user:jane@example.com",
+							"role":        "viewer",
+						},
+						"destroy": false,
+						"diff": {
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key_ring_id": {
+								"computed": false,
+								"new":      "your-key-ring-id",
+								"old":      "",
+							},
+							"member": {
+								"computed": false,
+								"new":      "user:jane@example.com",
+								"old":      "",
+							},
+							"role": {
+								"computed": false,
+								"new":      "viewer",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_organization_iam_member": {
+				"primitive-role": {
+					0: {
+						"applied": {
+							"etag":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"member": "user:alice@gmail.com",
+							"org_id": "0123456789",
+							"role":   "Editor",
+						},
+						"destroy": false,
+						"diff": {
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"member": {
+								"computed": false,
+								"new":      "user:alice@gmail.com",
+								"old":      "",
+							},
+							"org_id": {
+								"computed": false,
+								"new":      "0123456789",
+								"old":      "",
+							},
+							"role": {
+								"computed": false,
+								"new":      "Editor",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_project_iam_binding": {
+				"primitive-role": {
+					0: {
+						"applied": {
+							"etag": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"members": [
+								"user:jane@example.com",
+							],
+							"project": "your-project-id",
+							"role":    "Editor",
+						},
+						"destroy": false,
+						"diff": {
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"members.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"members.2572607723": {
+								"computed": false,
+								"new":      "user:jane@example.com",
+								"old":      "",
+							},
+							"project": {
+								"computed": false,
+								"new":      "your-project-id",
+								"old":      "",
+							},
+							"role": {
+								"computed": false,
+								"new":      "Editor",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_service_account": {
+				"sa": {
+					0: {
+						"applied": {
+							"account_id":   "my-service-account",
+							"display_name": "A service account that only Jane can use",
+							"email":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"unique_id":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"account_id": {
+								"computed": false,
+								"new":      "my-service-account",
+								"old":      "",
+							},
+							"display_name": {
+								"computed": false,
+								"new":      "A service account that only Jane can use",
+								"old":      "",
+							},
+							"email": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"unique_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_service_account_iam_binding": {
+				"primitive-role": {
+					0: {
+						"applied": {
+							"etag": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"members": [
+								"user:jane@example.com",
+							],
+							"role":               "Viewer",
+							"service_account_id": "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"members.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"members.2572607723": {
+								"computed": false,
+								"new":      "user:jane@example.com",
+								"old":      "",
+							},
+							"role": {
+								"computed": false,
+								"new":      "Viewer",
+								"old":      "",
+							},
+							"service_account_id": {
+								"computed": true,
+								"new":      "${google_service_account.sa.name}",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_storage_bucket_iam_binding": {
+				"primitive-role": {
+					0: {
+						"applied": {
+							"bucket": "my-bucket-id",
+							"etag":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"members": [
+								"user:jane@example.com",
+							],
+							"role": "Owner",
+						},
+						"destroy": false,
+						"diff": {
+							"bucket": {
+								"computed": false,
+								"new":      "my-bucket-id",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"members.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"members.2572607723": {
+								"computed": false,
+								"new":      "user:jane@example.com",
+								"old":      "",
+							},
+							"role": {
+								"computed": false,
+								"new":      "Owner",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.11.14"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

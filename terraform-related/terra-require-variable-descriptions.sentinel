@@ -1,0 +1,24 @@
+# TFPlan based policy that verifies all defined variables include descriptions
+
+##### Imports #####
+
+import "tfconfig"
+import "strings"
+
+##### Functions #####
+validated = true
+
+if length(tfconfig.variables) > 0 {
+  for tfconfig.variables as name, val {
+    if val.description is "" {
+      validated = false
+      print ("The variable: ", name, " is missing a required description.")
+    }
+  }
+}
+
+##### Rules #####
+# Main rule
+main = rule {
+  validated
+}

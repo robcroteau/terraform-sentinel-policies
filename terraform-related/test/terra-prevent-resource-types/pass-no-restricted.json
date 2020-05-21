@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-no-restricted.sentinel"
+  },
+  "test": {
+    "main": true
+  },
+  "param": {
+    "restricted_resource_list": ["google_pubsub_topic", "google_compute_network"]
+  }
+}

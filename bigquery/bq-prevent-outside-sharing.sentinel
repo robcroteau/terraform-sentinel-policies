@@ -1,0 +1,99 @@
+# TFPlan based policy preventing BigQuery Datasets from being shared users
+# or groups outside of a whitelisted group. 
+
+##### Imports #####
+
+import "tfplan"
+import "strings"
+
+param whitelisted_domains 
+
+##### Functions #####
+
+# Find all resources of a specific type from all modules using the tfplan import
+find_resources_from_plan = func(type) {
+
+  resources = {}
+
+  # Iterate over all modules in the tfplan import
+  for tfplan.module_paths as path {
+    # Iterate over the named resources of desired type in the module
+    for tfplan.module(path).resources[type] else {} as name, instances {
+      # Iterate over resource instances
+      for instances as index, r {
+
+        # Get the address of the instance
+        if length(path) == 0 {
+          # root module
+          address = type + "." + name + "[" + string(index) + "]"
+        } else {
+          # non-root module
+          address = "module." + strings.join(path, ".module.") + "." +
+                    type + "." + name + "[" + string(index) + "]"
+        }
+
+        # Add the instance to resources map, setting the key to the address
+        resources[address] = r
+      }
+    }
+  }
+
+  return resources
+}
+
+
+validate_no_authz_outsiders = func(type, allowed_domains) {
+
+  validated = true
+
+  # Get all resource instances of the specified type
+  resource_instances = find_resources_from_plan(type)
+
+  # Loop through the resource instances
+  for resource_instances as address, r {
+
+    # Skip resource instances that are being destroyed
+    # to avoid unnecessary policy violations.
+    # Used to be: if length(r.diff) == 0
+    if r.destroy and not r.requires_new {
+      print("Skipping resource", address, "that is being destroyed.")
+      continue
+    }
+    
+    if r.diff["access.#"].computed {
+      # Computed access lists mean no authorized outsiders, skip resource
+      print ("Dataset not shared with unauthorized domains: ", address)
+      continue
+    }
+    #group_by_email or user_by_email
+    for r.applied["access"] as role {
+      if role.group_by_email is not "" {
+        parts = strings.split(role.group_by_email, "@")
+        if parts[1] not in allowed_domains {
+          validated = false
+          print ("Dataset shared with unauthorized domains: ", address)
+        }
+      }
+      if role.user_by_email is not "" {
+        parts = strings.split(role.user_by_email, "@")
+        if parts[1] not in allowed_domains {
+          validated = false
+          print ("Dataset shared with unauthorized domains: ", address)
+        }
+      }
+    }
+  }
+  return validated
+}
+
+
+
+##### Rules #####
+
+# Call the validation function
+dataset_internal_only = validate_no_authz_outsiders("google_bigquery_dataset", whitelisted_domains)
+
+# Main rule
+main = rule {
+  dataset_internal_only
+}

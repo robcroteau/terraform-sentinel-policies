@@ -1,0 +1,444 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_container_cluster": {
+				"primary": {
+					0: {
+						"applied": {
+							"additional_zones":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"addons_config":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"cluster_autoscaling":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"cluster_ipv4_cidr":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"default_max_pods_per_node":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_binary_authorization": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_kubernetes_alpha":     false,
+							"enable_legacy_abac":          false,
+							"enable_tpu":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"endpoint":                    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"initial_node_count":          "1",
+							"instance_group_urls":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"ip_allocation_policy":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":                    "us-central1",
+							"logging_service":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"master_auth":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"master_version":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"monitoring_service":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":                        "my-gke-cluster",
+							"network":                     "default",
+							"network_policy":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_config":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_locations":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_pool":                   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_version":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":                     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":                      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"remove_default_node_pool":    true,
+							"services_ipv4_cidr":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"zone":                        "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"additional_zones.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"addons_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_autoscaling.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_ipv4_cidr": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"default_max_pods_per_node": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_binary_authorization": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_kubernetes_alpha": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_legacy_abac": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_tpu": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"initial_node_count": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"instance_group_urls.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_allocation_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "",
+							},
+							"logging_service": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_auth.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"monitoring_service": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "my-gke-cluster",
+								"old":      "",
+							},
+							"network": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"network_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_locations.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_pool.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"remove_default_node_pool": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"services_ipv4_cidr": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_container_node_pool": {
+				"primary_preemptible_nodes": {
+					0: {
+						"applied": {
+							"cluster":             "my-gke-cluster",
+							"id":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"initial_node_count":  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"instance_group_urls": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":            "us-central1",
+							"management": [
+								{
+									"auto_repair":  true,
+									"auto_upgrade": true,
+								},
+							],
+							"max_pods_per_node": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":              "my-node-pool",
+							"name_prefix":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_config": [
+								{
+									"disk_size_gb":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"disk_type":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"guest_accelerator": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"image_type":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"labels":            {},
+									"local_ssd_count":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"machine_type":      "n1-standard-1",
+									"metadata":          {},
+									"oauth_scopes": [
+										"https://www.googleapis.com/auth/logging.write",
+										"https://www.googleapis.com/auth/monitoring",
+									],
+									"preemptible":              true,
+									"service_account":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"shielded_instance_config": "74D93920-ED26-11E3-AC10-0800200C9A66",
+								},
+							],
+							"node_count": "1",
+							"project":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"version":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"zone":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"cluster": {
+								"computed": false,
+								"new":      "my-gke-cluster",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"initial_node_count": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"instance_group_urls.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "",
+							},
+							"management.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"management.0.auto_repair": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"management.0.auto_upgrade": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"max_pods_per_node": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "my-node-pool",
+								"old":      "",
+							},
+							"name_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"node_config.0.disk_size_gb": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.disk_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.guest_accelerator.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.image_type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.labels.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.local_ssd_count": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.machine_type": {
+								"computed": false,
+								"new":      "n1-standard-1",
+								"old":      "",
+							},
+							"node_config.0.metadata.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.oauth_scopes.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"node_config.0.oauth_scopes.1277378754": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/monitoring",
+								"old":      "",
+							},
+							"node_config.0.oauth_scopes.172152165": {
+								"computed": false,
+								"new":      "https://www.googleapis.com/auth/logging.write",
+								"old":      "",
+							},
+							"node_config.0.preemptible": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"node_config.0.service_account": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.0.shielded_instance_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_count": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.11.14"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

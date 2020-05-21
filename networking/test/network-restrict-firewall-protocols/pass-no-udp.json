@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "mock-pass-noudp.sentinel"
+  },
+  "test": {
+    "main": true
+  },
+  "param": {
+    "disallowed_protocols": ["udp"]
+  }
+}

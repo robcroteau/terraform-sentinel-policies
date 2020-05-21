@@ -1,0 +1,1283 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_compute_backend_service": {
+				"has-logging": {
+					0: {
+						"applied": {
+							"cdn_policy":                      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"connection_draining_timeout_sec": "300",
+							"creation_timestamp":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"fingerprint":                     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"health_checks":                   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"load_balancing_scheme": "INTERNAL_SELF_MANAGED",
+							"locality_lb_policy":    "ROUND_ROBIN",
+							"log_config": [
+								{
+									"enable": true,
+								},
+							],
+							"name":             "backend-service",
+							"port_name":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"protocol":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"session_affinity": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"timeout_sec":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"cdn_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"connection_draining_timeout_sec": {
+								"computed": false,
+								"new":      "300",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"health_checks.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"load_balancing_scheme": {
+								"computed": false,
+								"new":      "INTERNAL_SELF_MANAGED",
+								"old":      "",
+							},
+							"locality_lb_policy": {
+								"computed": false,
+								"new":      "ROUND_ROBIN",
+								"old":      "",
+							},
+							"log_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"log_config.0.enable": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "backend-service",
+								"old":      "",
+							},
+							"port_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"protocol": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"session_affinity": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeout_sec": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"reference": {
+					0: {
+						"applied": {
+							"cdn_policy":                      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"connection_draining_timeout_sec": "300",
+							"creation_timestamp":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"fingerprint":                     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"health_checks":                   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"load_balancing_scheme": "INTERNAL_SELF_MANAGED",
+							"locality_lb_policy":    "ROUND_ROBIN",
+							"log_config":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":                  "backend-service",
+							"port_name":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"protocol":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"session_affinity":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"timeout_sec":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"cdn_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"connection_draining_timeout_sec": {
+								"computed": false,
+								"new":      "300",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"health_checks.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"load_balancing_scheme": {
+								"computed": false,
+								"new":      "INTERNAL_SELF_MANAGED",
+								"old":      "",
+							},
+							"locality_lb_policy": {
+								"computed": false,
+								"new":      "ROUND_ROBIN",
+								"old":      "",
+							},
+							"log_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "backend-service",
+								"old":      "",
+							},
+							"port_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"protocol": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"session_affinity": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeout_sec": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_firewall": {
+				"has-logging": {
+					0: {
+						"applied": {
+							"allow": [
+								{
+									"ports":    [],
+									"protocol": "icmp",
+								},
+							],
+							"creation_timestamp": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"destination_ranges": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"direction":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_logging":     true,
+							"id":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":               "test-firewall",
+							"network":            "fakenetwork",
+							"priority":           "1000",
+							"project":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"source_ranges":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"source_tags": [
+								"web",
+							],
+						},
+						"destroy": false,
+						"diff": {
+							"allow.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"allow.1367131964.ports.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"allow.1367131964.protocol": {
+								"computed": false,
+								"new":      "icmp",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"destination_ranges.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"direction": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_logging": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "test-firewall",
+								"old":      "",
+							},
+							"network": {
+								"computed": false,
+								"new":      "fakenetwork",
+								"old":      "",
+							},
+							"priority": {
+								"computed": false,
+								"new":      "1000",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_ranges.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_tags.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"source_tags.365508689": {
+								"computed": false,
+								"new":      "web",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"reference": {
+					0: {
+						"applied": {
+							"allow": [
+								{
+									"ports":    [],
+									"protocol": "icmp",
+								},
+							],
+							"creation_timestamp": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"destination_ranges": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"direction":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":               "test-firewall",
+							"network":            "fakenetwork",
+							"priority":           "1000",
+							"project":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"source_ranges":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"source_tags": [
+								"web",
+							],
+						},
+						"destroy": false,
+						"diff": {
+							"allow.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"allow.1367131964.ports.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"allow.1367131964.protocol": {
+								"computed": false,
+								"new":      "icmp",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"destination_ranges.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"direction": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "test-firewall",
+								"old":      "",
+							},
+							"network": {
+								"computed": false,
+								"new":      "fakenetwork",
+								"old":      "",
+							},
+							"priority": {
+								"computed": false,
+								"new":      "1000",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_ranges.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"source_tags.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"source_tags.365508689": {
+								"computed": false,
+								"new":      "web",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_health_check": {
+				"health_check": {
+					0: {
+						"applied": {
+							"check_interval_sec": "5",
+							"creation_timestamp": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"healthy_threshold":  "2",
+							"http_health_check": [
+								{
+									"port":         "80",
+									"proxy_header": "NONE",
+									"request_path": "/",
+								},
+							],
+							"id":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":                "health-check",
+							"project":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"timeout_sec":         "5",
+							"type":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"unhealthy_threshold": "2",
+						},
+						"destroy": false,
+						"diff": {
+							"check_interval_sec": {
+								"computed": false,
+								"new":      "5",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"healthy_threshold": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"http_health_check.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"http_health_check.0.port": {
+								"computed": false,
+								"new":      "80",
+								"old":      "",
+							},
+							"http_health_check.0.proxy_header": {
+								"computed": false,
+								"new":      "NONE",
+								"old":      "",
+							},
+							"http_health_check.0.request_path": {
+								"computed": false,
+								"new":      "/",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "health-check",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeout_sec": {
+								"computed": false,
+								"new":      "5",
+								"old":      "",
+							},
+							"type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"unhealthy_threshold": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_region_backend_service": {
+				"has-logging": {
+					0: {
+						"applied": {
+							"connection_draining_timeout_sec": "10",
+							"creation_timestamp":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"fingerprint":                     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"health_checks":                   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"load_balancing_scheme": "INTERNAL",
+							"log_config": [
+								{
+									"enable": true,
+								},
+							],
+							"name":             "region-service",
+							"project":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"protocol":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":           "us-central1",
+							"self_link":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"session_affinity": "CLIENT_IP",
+							"timeout_sec":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"connection_draining_timeout_sec": {
+								"computed": false,
+								"new":      "10",
+								"old":      "",
+							},
+							"creation_timestamp": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"fingerprint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"health_checks.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"load_balancing_scheme": {
+								"computed": false,
+								"new":      "INTERNAL",
+								"old":      "",
+							},
+							"log_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"log_config.0.enable": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "region-service",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"protocol": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"session_affinity": {
+								"computed": false,
+								"new":      "CLIENT_IP",
+								"old":      "",
+							},
+							"timeout_sec": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_compute_router_nat": {
+				"nat": {
+					0: {
+						"applied": {
+							"icmp_idle_timeout_sec": "30",
+							"id": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"log_config": [
+								{
+									"enable": true,
+									"filter": "ERRORS_ONLY",
+								},
+							],
+							"name": "my-router-nat",
+							"nat_ip_allocate_option": "AUTO_ONLY",
+							"project":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":                 "us-east1",
+							"router":                 "routername",
+							"source_subnetwork_ip_ranges_to_nat": "ALL_SUBNETWORKS_ALL_IP_RANGES",
+							"tcp_established_idle_timeout_sec":   "1200",
+							"tcp_transitory_idle_timeout_sec":    "30",
+							"udp_idle_timeout_sec":               "30",
+						},
+						"destroy": false,
+						"diff": {
+							"icmp_idle_timeout_sec": {
+								"computed": false,
+								"new":      "30",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"log_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"log_config.0.enable": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"log_config.0.filter": {
+								"computed": false,
+								"new":      "ERRORS_ONLY",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "my-router-nat",
+								"old":      "",
+							},
+							"nat_ip_allocate_option": {
+								"computed": false,
+								"new":      "AUTO_ONLY",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": false,
+								"new":      "us-east1",
+								"old":      "",
+							},
+							"router": {
+								"computed": false,
+								"new":      "routername",
+								"old":      "",
+							},
+							"source_subnetwork_ip_ranges_to_nat": {
+								"computed": false,
+								"new":      "ALL_SUBNETWORKS_ALL_IP_RANGES",
+								"old":      "",
+							},
+							"tcp_established_idle_timeout_sec": {
+								"computed": false,
+								"new":      "1200",
+								"old":      "",
+							},
+							"tcp_transitory_idle_timeout_sec": {
+								"computed": false,
+								"new":      "30",
+								"old":      "",
+							},
+							"udp_idle_timeout_sec": {
+								"computed": false,
+								"new":      "30",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_container_cluster": {
+				"has-logging": {
+					0: {
+						"applied": {
+							"additional_zones":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"addons_config":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"cluster_autoscaling":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"cluster_ipv4_cidr":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"default_max_pods_per_node":   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_binary_authorization": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_kubernetes_alpha":     false,
+							"enable_legacy_abac":          false,
+							"enable_tpu":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"endpoint":                    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"id":                          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"initial_node_count":          "1",
+							"instance_group_urls":         "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"ip_allocation_policy":        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":                    "us-central1",
+							"logging_service":             "logging.googleapis.com/kubernetes",
+							"master_auth": [
+								{
+									"client_certificate": "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"client_certificate_config": [
+										{
+											"issue_client_certificate": false,
+										},
+									],
+									"client_key":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+									"cluster_ca_certificate": "74D93920-ED26-11E3-AC10-0800200C9A66",
+								},
+							],
+							"master_version":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"monitoring_service":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":                     "my-gke-cluster",
+							"network":                  "default",
+							"network_policy":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_config":              "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_locations":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_pool":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"node_version":             "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"project":                  "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":                   "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"remove_default_node_pool": true,
+							"services_ipv4_cidr":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"zone":                     "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"additional_zones.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"addons_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_autoscaling.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"cluster_ipv4_cidr": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"default_max_pods_per_node": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_binary_authorization": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_kubernetes_alpha": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_legacy_abac": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"enable_tpu": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"initial_node_count": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"instance_group_urls.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_allocation_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "",
+							},
+							"logging_service": {
+								"computed": false,
+								"new":      "logging.googleapis.com/kubernetes",
+								"old":      "",
+							},
+							"master_auth.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"master_auth.0.client_certificate": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_auth.0.client_certificate_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"master_auth.0.client_certificate_config.0.issue_client_certificate": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"master_auth.0.client_key": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_auth.0.cluster_ca_certificate": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"monitoring_service": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "my-gke-cluster",
+								"old":      "",
+							},
+							"network": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"network_policy.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_config.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_locations.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_pool.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"node_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"remove_default_node_pool": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"services_ipv4_cidr": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_data_fusion_instance": {
+				"has-logging": {
+					0: {
+						"applied": {
+							"create_time":                "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"enable_stackdriver_logging": true,
+							"id":               "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":             "my-instance",
+							"project":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"region":           "us-central1",
+							"service_endpoint": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"state":            "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"state_message":    "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"type":             "BASIC",
+							"update_time":      "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"version":          "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"create_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_stackdriver_logging": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "my-instance",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "",
+							},
+							"service_endpoint": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"state": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"state_message": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"type": {
+								"computed": false,
+								"new":      "BASIC",
+								"old":      "",
+							},
+							"update_time": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_dns_policy": {
+				"has-logging": {
+					0: {
+						"applied": {
+							"alternative_name_server_config": [
+								{
+									"target_name_servers": [
+										{
+											"ipv4_address": "172.16.1.20",
+										},
+										{
+											"ipv4_address": "172.16.1.10",
+										},
+									],
+								},
+							],
+							"description":               "Managed by Terraform",
+							"enable_inbound_forwarding": true,
+							"enable_logging":            true,
+							"id":                        "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"name":                      "dns-policy",
+							"networks": [
+								{
+									"network_url": "fakenetwork",
+								},
+							],
+							"project": "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"alternative_name_server_config.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"alternative_name_server_config.0.target_name_servers.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"alternative_name_server_config.0.target_name_servers.1082791525.ipv4_address": {
+								"computed": false,
+								"new":      "172.16.1.20",
+								"old":      "",
+							},
+							"alternative_name_server_config.0.target_name_servers.1120708668.ipv4_address": {
+								"computed": false,
+								"new":      "172.16.1.10",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "Managed by Terraform",
+								"old":      "",
+							},
+							"enable_inbound_forwarding": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"enable_logging": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "dns-policy",
+								"old":      "",
+							},
+							"networks.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"networks.1444309949.network_url": {
+								"computed": false,
+								"new":      "fakenetwork",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"google_storage_bucket": {
+				"has-logging": {
+					0: {
+						"applied": {
+							"bucket_policy_only": "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"force_destroy":      true,
+							"id":                 "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"location":           "US",
+							"logging": [
+								{
+									"log_bucket":        "gs://notrealbucket/",
+									"log_object_prefix": "74D93920-ED26-11E3-AC10-0800200C9A66",
+								},
+							],
+							"name":          "auto-expiring-bucket",
+							"project":       "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"self_link":     "74D93920-ED26-11E3-AC10-0800200C9A66",
+							"storage_class": "STANDARD",
+							"url":           "74D93920-ED26-11E3-AC10-0800200C9A66",
+						},
+						"destroy": false,
+						"diff": {
+							"bucket_policy_only": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"force_destroy": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "US",
+								"old":      "",
+							},
+							"logging.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"logging.0.log_bucket": {
+								"computed": false,
+								"new":      "gs://notrealbucket/",
+								"old":      "",
+							},
+							"logging.0.log_object_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "auto-expiring-bucket",
+								"old":      "",
+							},
+							"project": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"storage_class": {
+								"computed": false,
+								"new":      "STANDARD",
+								"old":      "",
+							},
+							"url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.11.14"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

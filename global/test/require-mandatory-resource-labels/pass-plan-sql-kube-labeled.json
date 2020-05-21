@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "pass-plan-sql-kube-labeled.sentinel"
+  },
+  "test": {
+    "main": true
+  },
+  "param": {
+    "required_labels": ["env","foo"]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-naming-structure.sentinel"
+  },
+  "test": {
+    "main": true
+  },
+  "param": {
+    "naming_conventions": [{"google_project":{"name_attribute":"project_id","name_exp":"^(p|np)-(si|gaf)-(\\w+)"}},{"google_pubsub_topic":{"name_attribute":"name","name_exp":"^(p|np)-(si|gaf)-(\\w+)"}}]
+  }
+}

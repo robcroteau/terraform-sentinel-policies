@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-auth-email.sentinel"
+  },
+  "test": {
+    "main": true
+  }
+}

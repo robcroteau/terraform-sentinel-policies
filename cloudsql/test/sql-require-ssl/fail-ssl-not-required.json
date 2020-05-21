@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-ssl-not-required.sentinel"
+  },
+  "test": {
+    "main": false
+  }
+}

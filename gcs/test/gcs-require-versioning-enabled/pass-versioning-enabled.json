@@ -1,0 +1,8 @@
+{
+  "mock": {
+    "tfplan": "mock-plan-versioning.sentinel"
+  },
+  "test": {
+    "main": true
+  }
+}

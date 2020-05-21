@@ -1,0 +1,200 @@
+// This policy is enforced on only specific resources
+// most GCP resources do not offer logging configuration 
+// or use external configurations set at project/vpc levels
+
+// There is not a clean way to identify all resources that have logging configurations
+// as resources have various names and depths for their logging flags. For this purpose
+// a clone of the Google Provider repo was used, along with a grep command to identify 
+// potential resources that had logging. This was then further reduced by comparing against
+// resources types used by the SI Datalake
+
+/* This policy enforces that:
+google_compute_firewall.enable_logging = true
+google_dns_policy.enable_logging = true
+google_data_fusion_instance.enable_stackdriver_logging = true
+google_compute_router_nat.log_config.enable = true
+google_compute_backend_service.log_config.enable = true
+google_compute_region_backend_service.log_config.enable = true
+google_container_cluster.logging_service != none
+google_storage_bucket.logging ('logging block exists')
+*/
+// grep -iRl "logging" . | grep -v "test" | sort | uniq
+##### Imports #####
+
+import "tfplan"
+import "strings"
+
+# Find all resources of a specific type from all modules using the tfplan import
+find_resources_from_plan = func(type) {
+
+  resources = {}
+
+  # Iterate over all modules in the tfplan import
+  for tfplan.module_paths as path {
+    # Iterate over the named resources of desired type in the module
+    for tfplan.module(path).resources[type] else {} as name, instances {
+      # Iterate over resource instances
+      for instances as index, r {
+
+        # Get the address of the instance
+        if length(path) == 0 {
+          # root module
+          address = type + "." + name + "[" + string(index) + "]"
+        } else {
+          # non-root module
+          address = "module." + strings.join(path, ".module.") + "." +
+                    type + "." + name + "[" + string(index) + "]"
+        }
+
+        # Add the instance to resources map, setting the key to the address
+        resources[address] = r
+      }
+    }
+  }
+
+  return resources
+}
+
+# Validate that all instances of a specified resource type being modified have
+# a specified top-level attribute with a given value
+validate_attribute_has_value = func(type, attribute, value) {
+
+  validated = true
+
+  # Get all resource instances of the specified type
+  resource_instances = find_resources_from_plan(type)
+
+  # Loop through the resource instances
+  for resource_instances as address, r {
+
+    # Skip resource instances that are being destroyed
+    # to avoid unnecessary policy violations.
+    # Used to be: if length(r.diff) == 0
+    if r.destroy and not r.requires_new {
+      print("Skipping resource", address, "that is being destroyed.")
+      continue
+    }
+
+    # Determine if the attribute is computed
+    if r.diff[attribute].computed else false is true {
+      print("Resource", address, "has attribute", attribute,
+            "that is computed.")
+      # If you want computed values to cause the policy to fail,
+      # uncomment the next line.
+      # validated = false
+    } else {
+      # Validate that each instance has desired value
+      if (r.applied[attribute] else "") is not value {
+        print("Resource", address, "has attribute", attribute, "with value",
+              r.applied[attribute] else "",
+              "that is not the required value:", value)
+        validated = false
+      }
+    }
+
+  }
+
+  return validated
+}
+
+# Validate that attribute log_config of type [object{}] has enable = true
+validate_log_config_enabled = func(type) {
+
+  validated = true
+
+  # Get all resource instances of the specified type
+  resource_instances = find_resources_from_plan(type)
+
+  # Loop through the resource instances
+  for resource_instances as address, r {
+
+    # Skip resource instances that are being destroyed
+    # to avoid unnecessary policy violations.
+    # Used to be: if length(r.diff) == 0
+    if r.destroy and not r.requires_new {
+      print("Skipping resource", address, "that is being destroyed.")
+      continue
+    }
+
+    # Determine if the attribute is computed
+    if r.diff["log_config"].computed else false is true {
+      print("Resource", address, "has attribute", attribute,
+            "that is computed.")
+      # If you want computed values to cause the policy to fail,
+      # uncomment the next line.
+      # validated = false
+    } else {
+      # Validate that each instance has desired value
+      if keys(r.applied) contains "log_config" {
+        if r.applied["log_config"][0].enable is not true {
+          validated = false
+          print("Resource has log_config without enabling logs: ", address)
+        }
+      } else {
+        validated = false
+        print("Resource requires log_config block to be defined per policy: ", address)
+      }
+    }
+
+  }
+
+  return validated
+}
+
+# Validate that all instances of a specified resource type being modified have
+# a specified top-level attribute with a given value
+validate_storage_bucket_log_block = func() {
+
+  validated = true
+
+  # Get all resource instances of the specified type
+  resource_instances = find_resources_from_plan("google_storage_bucket")
+
+  # Loop through the resource instances
+  for resource_instances as address, r {
+
+    # Skip resource instances that are being destroyed
+    # to avoid unnecessary policy violations.
+    # Used to be: if length(r.diff) == 0
+    if r.destroy and not r.requires_new {
+      print("Skipping resource", address, "that is being destroyed.")
+      continue
+    }
+
+    # Determine if the attribute is computed
+    if r.diff["logging"].computed else false is true {
+      print("Resource", address, "has attribute", attribute,
+            "that is computed.")
+      # If you want computed values to cause the policy to fail,
+      # uncomment the next line.
+      # validated = false
+    } else {
+      # Validate that each instance has desired value
+      if keys(r.applied) contains "logging" {
+        print("Storage bucket validated: ", address)
+      } else {
+        validated = false
+        print("Storage bucket missing log sink(logging block definition): ", address)
+      }
+    }
+
+  }
+
+  return validated
+}
+
+//validated = validate_attribute_has_value("google_compute_firewall", "enable_logging", "true") and
+//validate_attribute_has_value("google_compute_backend_service","log_config.enable", "true") and
+//validate_attribute_has_value("google_compute_region_backend_service","log_config.enable", "true") and
+
+// In order to output all failed resources in a single execution we'll accumulate a boolean
+// for each resource type
+v1 = validate_attribute_has_value("google_dns_policy", "enable_logging", true)
+v2 = validate_attribute_has_value("google_data_fusion_instance", "enable_stackdriver_logging", true)
+v3 = validate_log_config_enabled("google_compute_router_nat")
+v4 = validate_attribute_has_value("google_container_cluster", "logging_service", "logging.googleapis.com/kubernetes")
+v5 = validate_storage_bucket_log_block()
+
+main = rule {
+  all [v1,v2,v3,v4,v5] as t { t is true }
+}

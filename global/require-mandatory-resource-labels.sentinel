@@ -1,0 +1,174 @@
+/* This global policy is created to cover a specific range of resources
+   resources outside of the list at the bottom will need to be added to be
+   monitored correctly. 
+*/
+
+##### Imports #####
+
+import "tfplan"
+import "strings"
+
+##### Params #####
+param required_labels //List of required keys: ["env","ou"]
+
+##### Functions #####
+
+# Find all resources of a specific type from all modules using the tfplan import
+find_resources_from_plan = func(type) {
+
+  resources = {}
+
+  # Iterate over all modules in the tfplan import
+  for tfplan.module_paths as path {
+    # Iterate over the named resources of desired type in the module
+    for tfplan.module(path).resources[type] else {} as name, instances {
+      # Iterate over resource instances
+      for instances as index, r {
+
+        # Get the address of the instance
+        if length(path) == 0 {
+          # root module
+          address = type + "." + name + "[" + string(index) + "]"
+        } else {
+          # non-root module
+          address = "module." + strings.join(path, ".module.") + "." +
+                    type + "." + name + "[" + string(index) + "]"
+        }
+
+        # Add the instance to resources map, setting the key to the address
+        resources[address] = r
+      }
+    }
+  }
+
+  return resources
+}
+
+# Validate that list of resource types all contain required keys
+# from required_label_keys
+validate_labels_exist = func(types, required_label_keys) {
+
+  validated = true
+  for types as type {
+    # Get all resource instances of the specified type
+    resource_instances = find_resources_from_plan(type)
+
+    # Loop through the resource instances
+    for resource_instances as address, r {
+
+      # Skip resource instances that are being destroyed
+      # to avoid unnecessary policy violations.
+      # Used to be: if length(r.diff) == 0
+      if r.destroy and not r.requires_new {
+        print("Skipping resource", address, "that is being destroyed.")
+        continue
+      }
+
+      if keys(r.applied) contains "labels" {
+        key_labels = keys(r.applied["labels"])
+        result = all required_label_keys as t { t in key_labels}
+        if result is false {
+          validated = false
+          print("Resource is missing required Label keys: ", address)
+        }
+      }
+    }
+  }
+
+  return validated
+}
+
+validate_block_labels_exist = func(type, block, attribute, required_label_keys) {
+
+  validated = true
+  # Get all resource instances of the specified type
+  resource_instances = find_resources_from_plan(type)
+
+  # Loop through the resource instances
+  for resource_instances as address, r {
+
+    # Skip resource instances that are being destroyed
+    # to avoid unnecessary policy violations.
+    # Used to be: if length(r.diff) == 0
+    if r.destroy and not r.requires_new {
+      print("Skipping resource", address, "that is being destroyed.")
+      continue
+    }
+
+    if keys(r.applied) contains block {
+      // Check if block contains lables
+      block_val = r.applied[block][0]
+      if keys(block_val) contains attribute {
+        key_labels = keys(block_val[attribute])
+        result = all required_label_keys as t { t in key_labels}
+        if result is false {
+          validated = false
+          print("Resource is missing required Label keys: ", address)
+        }
+      } else {
+        validated = false
+        print("Resource is missing required Label keys: ", address)
+      }
+    } else {
+      validated = false
+      print("Resource is missing block, ",block," required to Label keys: ", address)
+    }
+  }
+  
+
+  return validated
+}
+
+monitored_resources = [
+"google_bigquery_dataset",
+"google_bigquery_table",
+"google_cloud_run_domain_mapping",
+"google_cloud_run_service",
+"google_cloudfunctions_function",
+"google_composer_environment",
+"google_compute_disk",
+"google_compute_forwarding_rule",
+"google_compute_global_forwarding_rule",
+"google_compute_image",
+"google_compute_instance_template",
+"google_compute_instance",
+"google_compute_node_template",
+"google_compute_region_disk",
+"google_compute_resource_policy",
+"google_compute_snapshot",
+"google_compute_url_map",
+"google_dataflow_job",
+"google_dataproc_cluster",
+"google_dataproc_job",
+"google_deployment_manager_deployment",
+"google_dns_managed_zone",
+"google_filestore_instance",
+"google_project",
+"google_kms_crypto_key",
+"google_logging_metric",
+"google_ml_engine_model",
+"google_monitoring_alert_policy",
+"google_monitoring_notification_channel",
+"google_monitoring_uptime_check_config",
+"google_pubsub_subscription",
+"google_pubsub_topic",
+"google_redis_instance",
+"google_spanner_instance",
+"google_storage_bucket",
+"google_tpu_node"]
+
+// The following resources have labels in seperate locations and need to be handled
+// seperatly:
+// google_sql_database_instance #settings block .user_labels
+// google_container_cluster #node_config block .labels
+
+##### Rules #####
+
+# Call the validation function
+enforced_labels_on_resources = validate_labels_exist(monitored_resources, required_labels)
+vsql = validate_block_labels_exist("google_sql_database_instance", "settings","user_labels",required_labels)
+vkube= validate_block_labels_exist("google_container_cluster", "node_config","labels",required_labels)
+# Main rule
+main = rule {
+  enforced_labels_on_resources and vsql and vkube
+}
